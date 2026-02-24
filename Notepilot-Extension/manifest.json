@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "NotePilot – Meet Audio Capture",
+  "version": "1.0",
+
+  "permissions": [
+    "tabCapture",
+    "activeTab"
+  ],
+
+  "host_permissions": [
+    "https://meet.google.com/*"
+  ],
+
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
