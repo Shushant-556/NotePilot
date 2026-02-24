@@ -285,3 +285,6 @@ Built by a team of four as a hackathon project, focused on:
 
 
 C:\Users\Lenovo\Documents\NotePilot\backend>python whisper_server.py
+
+#LINK TO OPEN PREVIEW:
+[text](https://notepilot-demo.preview.emergentagent.com/)
