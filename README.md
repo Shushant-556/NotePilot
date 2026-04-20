@@ -1,40 +1,155 @@
-# 🧠 NotePilot – Real-Time AI Meeting Assistant
+🧠 NotePilot – Real-Time AI Meeting Assistant
+📌 Overview
 
-## 📌 Project Overview
+NotePilot is a real-time AI meeting assistant that works seamlessly with platforms like Google Meet.
 
-**NotePilot** is a real-time AI meeting assistant designed to work seamlessly with online meetings like **Google Meet**.  
-It captures live meeting audio with explicit user consent, processes it in real time, and converts conversations into actionable meeting intelligence such as live transcripts, summaries, action items, and meeting evaluation.
+It captures live meeting audio (with user consent), processes it instantly, and converts conversations into actionable insights such as:
 
-Instead of recording meetings for later review, **NotePilot understands meetings as they happen**.
+📝 Live transcripts
+📊 Summaries
+✅ Action items
+📈 Meeting intelligence
 
----
+Unlike traditional tools, NotePilot does not just record meetings — it understands them in real time.
 
-## 🚩 Problem Statement
+🚩 Problem Statement
 
-In most online meetings today:
+Modern online meetings face several challenges:
 
-- Participants join late and miss important context
-- Asking “What did I miss?” interrupts the meeting flow
-- Decisions and action items are not clearly remembered
-- Minutes of Meeting (MOM) are written manually
-- Deadlines and ownership are often unclear
-- Engagement and participation are hard to track
+Late joiners miss important context
+Frequent interruptions like “What did I miss?”
+No clear tracking of decisions or action items
+Manual effort required for Minutes of Meeting (MOM)
+Lack of accountability and engagement tracking
 
-As a result, meetings consume time but often fail to produce clarity or accountability.
+👉 Result: Meetings consume time but fail to deliver clarity.
 
----
+💡 Solution
 
-## 💡 Solution
+NotePilot acts as a real-time AI copilot that:
 
-NotePilot acts as a **real-time AI copilot for meetings** that:
+🎙️ Captures live meeting audio directly from the browser
+🔄 Transcribes conversations continuously
+⚡ Helps late joiners instantly catch up
+🧾 Builds the foundation for automated summaries and insights
 
-- Captures live meeting audio directly from the browser
-- Transcribes conversations continuously during the meeting
-- Allows late joiners to instantly understand what has happened
-- Builds the foundation for automatic summaries, MOM, and insights
+All of this runs silently in the background without disrupting participants.
 
-All of this happens **silently in the background**, without interrupting participants.
+🧠 Core Idea
 
+Meetings should not just be recorded — they should be understood.
+
+NotePilot transforms raw meeting audio into:
+
+Structured
+Searchable
+Actionable intelligence
+🏗️ Architecture
+Google Meet
+   ↓
+Chrome Extension (Tab Audio Capture)
+   ↓
+Web Audio API (PCM Processing)
+   ↓
+WebSocket Streaming
+   ↓
+Local Backend Server
+   ↓
+Whisper (Speech-to-Text)
+   ↓
+Live Transcript
+🎯 Features Implemented
+✅ Chrome Extension (Manifest V3)
+Works only on Google Meet
+Requires explicit user permission
+Fully compliant with Chrome security policies
+✅ Real-Time Audio Capture
+Uses chrome.tabCapture.capture()
+Active tab only (privacy-safe)
+Start/Stop controlled by user
+✅ Popup-Based Capture Architecture
+Implemented via extension popup due to MV3 limitations
+Ensures compliance with Chrome policies
+✅ Real-Time Audio Processing
+Web Audio API for processing
+Converts audio → 16-bit PCM
+Streams small chunks via WebSockets
+✅ Backend WebSocket Server
+Receives real-time audio
+Buffers and prepares for transcription
+Fully decoupled from frontend
+✅ Whisper Integration (Offline AI)
+No API keys required
+No cloud billing
+Runs locally
+High accuracy transcription
+✅ FFmpeg Integration
+Ensures audio compatibility
+Required for Whisper
+Configured for Windows
+✅ Live Transcription (End-to-End)
+Real-time Google Meet transcription
+Instant context for late joiners
+Fully working pipeline
+🧱 Project Structure
+NotePilot/
+│
+├── backend/
+│   ├── whisper_server.py
+│   ├── server.js (unused)
+│   ├── package.json
+│   └── node_modules/
+│
+├── NotePilot-Extension/
+│   ├── manifest.json
+│   ├── popup.html
+│   ├── popup.js
+│   └── icons/
+│
+└── README.md
+🧾 Key Files
+🔹 manifest.json
+Manifest V3
+Minimal permissions (tabCapture)
+Restricted to Google Meet
+🔹 popup.js
+Captures tab audio
+Processes via Web Audio API
+Streams via WebSockets
+🔹 whisper_server.py
+WebSocket server
+Buffers audio
+Converts speech → text
+🔐 Privacy & Security
+✅ User consent required
+✅ Only active tab access
+❌ No background recording
+❌ No system-wide audio capture
+✅ Fully compliant with Chrome policies
+🧠 Challenges Solved
+Chrome MV3 audio limitations
+Real-time audio streaming
+PCM conversion
+Offline speech-to-text
+Whisper + FFmpeg setup
+End-to-end pipeline stability
+🏁 Current Status
+Feature	Status
+Chrome Extension	✅ Done
+Audio Capture	✅ Done
+Real-Time Streaming	✅ Done
+Backend Server	✅ Done
+Whisper Integration	✅ Done
+Live Transcription	✅ Done
+Summaries & MOM	⏳ Next
+Chatbot	⏳ Next
+🚀 Future Enhancements
+⏱️ Timestamped transcripts
+🧾 Automatic MOM generation
+🤖 “What did I miss?” chatbot
+📌 Action item extraction
+📊 Engagement analytics
+☁️ Cloud deployment
 ---
 
 ## 🧠 Core Idea
